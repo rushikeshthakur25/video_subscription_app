@@ -13,7 +13,7 @@ Welcome to our Video Subscription Platform repository! This project offers a com
 🔧 Technologies Used:
 Frontend: HTML5, CSS3, JavaScript
 Backend: Python (Django)
-Database: SQLi for data management
+Database: SQLite3 for data management
 Payment: Integration with Stripe/Razorpay for secure transactions
 Version Control: Git for collaborative development
 
