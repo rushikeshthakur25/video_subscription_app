@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+  <h2>Your Profile</h2>
+  
+  {% if remaining_days %}
+    <p>Your subscription is active. You have {{ remaining_days }} days remaining.</p>
+  {% else %}
+    <p>Your subscription has expired. Please consider renewing.</p>
+  {% endif %}
+  
+  <p>Other profile information can go here.</p>
+{% endblock %}
+</body>
+</html>

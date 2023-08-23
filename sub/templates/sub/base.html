@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}Streaming App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body style="background-color: #151226;">
+    <nav class="flex items-center justify-between px-4 py-6 bg-red-700">
+        <div>
+            <a href="/" class="text-xl text-white">Netflix</a>
+            <!-- <img src="img/logo" alt="" srcset=""> -->
+        </div>
+
+        <div class="flex items-center space-x-4">
+            {% if request.user.is_authenticated %}
+            <P class="text-white font-bold">{{ user.username }}</P>
+            <!-- <a href="{% url 'list' %}"><P class="text-white font-bold">list</P><a> -->
+            <a href="/logout/" class="text-white px-4 py-3 rounded-xl bg-red-900 hover:bg-red-500">Log out</a>
+            {% else %}
+            <a href="/login/" class="text-white hover:text-gray-900">Login</a>
+            <a href="/signup/" class="text-white px-4 py-3 rounded-xl bg-red-900 hover:bg-red-500">Sign up</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+
+    {% block script %}
+    {% endblock %}
+    {% block footer %}
+    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#"
+                    class="hover:underline">All Rights Reserved</a>. Personally Crafted 🎨 By <samp style="color: green;font-weight: bold;">Rushikesh Thakur</samp> 
+            </span>
+        </div>
+    </footer>
+
+    {% endblock %}
+</body>
+
+</html>

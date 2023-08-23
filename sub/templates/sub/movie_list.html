@@ -1,0 +1,90 @@
+{% extends 'sub/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block content %}
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        /* table,
+        tr,
+        td,
+        th {
+            border: 2px solid;
+            border-collapse: collapse;
+        } */
+
+        /* body {
+            
+            text-align: center;
+        } */
+    </style>
+</head>
+
+<body>
+
+    {% if data%}
+
+    <!-- component -->
+    <div class="h-screen flex bg-gray-900 items-center justify-center">
+        <div class="grid grid-cols-12 gap-2 gap-y-4 max-w-6xl">
+
+            <!-- Video 1 -->
+            {% for d in data%}
+            <a href="#">
+                <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                    <card class="w-full flex flex-col">
+                        <div class="relative">
+
+                            <!-- Image Video -->
+                            <a href="{% url 'display_movie' %}">
+                                <img src="{{d.mpic.url  }}" class="w-96 h-auto" />
+                            </a>
+
+                            <p class="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py">1:15</p>
+                        </div>
+
+                        <div class="flex flex-row mt-2 gap-2">
+
+                            <!-- Profile Picture -->
+                            <a href="{% url 'display_movie'  %}">
+                                <img src="https://picsum.photos/seed/1/40/40" class="rounded-full max-h-10 max-w-10" />
+                            </a>
+
+                            <!-- Description -->
+                            <div clas="flex flex-col">
+                                <a href="{% url 'display_movie' %}">
+                                    <p class="text-gray-100 text-sm font-semibold">{{d.mname}}</p>
+                                </a>
+                                <a class="text-gray-400 text-xs mt-2 hover:text-gray-100" href="{% url 'display_movie'%}"> {{d.mdescription}}
+                                </a>
+                                <p class="text-gray-400 text-xs mt-1">{{d.mlanguage}}</p>
+                                <p class="text-gray-400 text-xs mt-1">241K views . 3 years ago</p>
+                            </div>
+
+                        </div>
+                    </card>
+                </div>
+            </a>
+            {% endfor%}
+        </div>
+    </div>
+    
+
+
+    {% else %}
+    <h1>No Data</h1>
+    {% endif %}
+    {% endblock%}
+</body>
+
+</html>

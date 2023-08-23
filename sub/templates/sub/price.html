@@ -1,0 +1,75 @@
+{% extends 'sub/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>plans</title>
+  {% block content %}
+</head>
+
+<body>
+  {% if plans%}
+  <div class="min-h-screen  from-red-300 to-yellow-200 flex justify-center items-center py-20">
+    <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
+      {% for plan in plans %}
+      <div
+        class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+        <!-- <h3 class="mb-3 text-xl font-bold text-indigo-600">Basic</h3> -->
+        <div class="relative">
+          <img class="w-full rounded-xl"
+            src="https://assets.nflxext.com/ffe/siteui/vlv3/b85863b0-0609-4dba-8fe8-d0370b25b9ee/fdf508c8-97d0-42fd-a6f9-9bef6bf96934/IN-en-20230731-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+            alt="Colors" />
+          <!-- <p class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">FREE -->
+          </p>
+        </div>
+        <h1 class="mt-4 text-indigo-600 text-2xl font-bold cursor-pointer">{{plan.name}}</h1>
+        <div class="my-4">
+          <div class="flex space-x-1 items-center">
+            <span>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mb-1.5" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg> -->
+
+              <img class="h-6 w-6 text-indigo-600 mb-1.5" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-description-internet-marketing-flaticons-lineal-color-flat-icons.png" alt="external-description-internet-marketing-flaticons-lineal-color-flat-icons"/>
+            </span>
+            <p>{{plan.description }}</p>
+          </div>
+          <div class="flex space-x-1 items-center">
+            <span>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mb-1.5" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg> -->
+              <img class="h-6 w-6 text-indigo-600 mb-1.5" src="https://img.icons8.com/color/48/cash-in-hand.png" alt="cash-in-hand"/>
+            </span>
+            <p>&#8377; {{plan.price}}</p>
+          </div>
+          <div class="flex space-x-1 items-center">
+            <span>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 mb-1.5" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg> -->
+              <img class="h-6 w-6 text-indigo-600 mb-1.5" src="https://img.icons8.com/nolan/64/time.png" alt="time"/>
+            </span>
+            <p>{{ plan.duration_in_days}} days</p>
+          </div>
+          <a href="{% url 'subscribe' plan.id %}"><button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Subscribe</button></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <h1>no data</h1>
+  {%endif%}
+</body>
+{% endblock%}
+
+</html>

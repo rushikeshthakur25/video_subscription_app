@@ -1,0 +1,56 @@
+{% extends 'sub/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Welcome | {% endblock %}
+</head>
+{% block content %}
+
+<body>
+    
+    {% if request.user.is_authenticated %}
+<section class="h-screen bg-cover opacity-75" style="background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/b85863b0-0609-4dba-8fe8-d0370b25b9ee/fdf508c8-97d0-42fd-a6f9-9bef6bf96934/IN-en-20230731-popsignuptwoweeks-perspective_alpha_website_large.jpg')">
+    <div class="flex h-full w-full items-center justify-center container mx-auto px-8">
+      <div class="max-w-6xl text-center">
+        <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-7xl">
+            Unlimited movies, TV shows and more</h1>
+  
+        <p class="mt-6 lg:text-lg text-white">Watch anywhere. Cancel anytime.</p>
+        <p class="mt-6 lg:text-lg text-white">Ready to watch? Enter your email to create or restart your membership.</p>
+  
+        <div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
+          <!-- <input id="email" type="text" class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Email Address" /> -->
+
+          <a href="{% url 'price' %}"><button class="transform rounded-md bg-red-700 px-10  py-4 text-sm font-semibold capitalize tracking-wide text-white transition-colors duration-200 hover:bg-red-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Get Started</button></a>
+           <a href="{% url 'list' %}"><button class="transform rounded-md bg-red-700 px-10  py-4 text-sm font-semibold capitalize tracking-wide text-white transition-colors duration-200 hover:bg-red-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Get Movies</button></a>
+           
+        </div>
+     
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <section class="h-screen bg-cover opacity-75" style="background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/b85863b0-0609-4dba-8fe8-d0370b25b9ee/fdf508c8-97d0-42fd-a6f9-9bef6bf96934/IN-en-20230731-popsignuptwoweeks-perspective_alpha_website_large.jpg')">
+    <div class="flex h-full w-full items-center justify-center container mx-auto px-8">
+      <div class="max-w-6xl text-center">
+        <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-7xl">
+            Unlimited movies, TV shows and more</h1>
+  
+        <p class="mt-6 lg:text-lg text-white">Watch anywhere. Cancel anytime.</p>
+        <p class="mt-6 lg:text-lg text-white">Ready to watch? Enter your email to create or restart your membership.</p>
+  
+        <div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
+          <input id="email" type="text" class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Email Address" />
+  
+          <a href="{% url 'list' %}"><button class="transform rounded-md bg-red-700 px-10  py-4 text-sm font-semibold capitalize tracking-wide text-white transition-colors duration-200 hover:bg-red-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Get Login</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endif %}
+    {% endblock%}
+</body>
+</html>
